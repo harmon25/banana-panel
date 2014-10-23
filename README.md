@@ -12,7 +12,7 @@ This is a Fork of the orignal Raspcontrol by Bioshox - It appears the repo is no
 You need a web server installed on your Banana Pi.
 
 
-If you are in a hurry, just clone the repository with:
+Clone the repository with:
 
 	git clone https://github.com/harmon25/banana-panel.git banana-panel
 

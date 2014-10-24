@@ -102,7 +102,7 @@ if (isset($_GET['action']) && isset($_GET['username']) && isset($_GET['password'
 
         <header>
             <div class="container">
-                <a href="<?php echo INDEX; ?>"><img src="img/bananapi.png" alt="rbpi" /></a>
+                <a href="<?php echo INDEX; ?>"><img src="img/banana-pi.png" alt="rbpi" /></a>
                 <h1><a href="<?php echo INDEX; ?>">Banana-Panel</a></h1>
                 <h2>The Banana Pi Control Center</h2>        
             </div>     

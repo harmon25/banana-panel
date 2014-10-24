@@ -15,7 +15,6 @@ $uptime = Uptime::uptime();
 $ram = Memory::ram();
 $swap = Memory::swap();
 $cpu = CPU::cpu();
-$cpu1 = CPU::cpu1();
 $cpu_heat = CPU::heat();
 $hdd = Storage::hdd();
 $net_connections = Network::connections();
@@ -113,22 +112,12 @@ function shell_to_html_table_result($shellExecOutput) {
         </tr>
 
         <tr id="check-cpu">
-            <td class="check"><i class="icon-tasks"></i> CPU-0</td>
+            <td class="check"><i class="icon-tasks"></i> CPUs</td>
             <td class="icon"><?php echo icon_alert($cpu['alert']); ?></td>
             <td class="infos">
                 loads: <?php echo $cpu['loads']; ?> [1 min] &middot; <?php echo $cpu['loads5']; ?> [5 min] &middot; <?php echo $cpu['loads15']; ?> [15 min]
                 <br />running at <span class="text-info"><?php echo $cpu['current']; ?></span> (min: <?php echo $cpu['min']; ?>  &middot;  max: <?php echo $cpu['max']; ?>)
                 <br />governor: <strong><?php echo $cpu['governor']; ?></strong>
-            </td>
-        </tr>
-
-        <tr id="check-cpu1">
-            <td class="check"><i class="icon-tasks"></i> CPU-1</td>
-            <td class="icon"><?php echo icon_alert($cpu1['alert']); ?></td>
-            <td class="infos">
-                loads: <?php echo $cpu1['loads']; ?> [1 min] &middot; <?php echo $cpu1['loads5']; ?> [5 min] &middot; <?php echo $cpu1['loads15']; ?> [15 min]
-                <br />running at <span class="text-info"><?php echo $cpu1['current']; ?></span> (min: <?php echo $cpu1['min']; ?>  &middot;  max: <?php echo $cpu1['max']; ?>)
-                <br />governor: <strong><?php echo $cpu1['governor']; ?></strong>
             </td>
         </tr>
 

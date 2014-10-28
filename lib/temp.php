@@ -12,7 +12,7 @@ class Temp {
     public static function temp() {
         $result = array();
 
-        $temp_file = "/sys/bus/w1/devices/28-000004e8a0f3/w1_slave";
+        $temp_file = "/sys/bus/w1/devices/28-00000582e880/w1_slave";
         if (file_exists($temp_file)) {
             $lines = file($temp_file);
             $pos = strpos($lines[1], "t=");

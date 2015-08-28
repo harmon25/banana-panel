@@ -158,7 +158,7 @@ function shell_to_html_table_result($shellExecOutput) {
                 IP: <span class="text-info"><?php echo Rbpi::internalIp(); ?></span> [internal] &middot;
                 <span class="text-info"><?php echo Rbpi::externalIp(); ?></span> [external]
                 <br />received: <strong><?php echo $net_eth['down']; ?>Mb</strong> &middot; sent: <strong><?php echo $net_eth['up']; ?>Mb</strong> &middot; total: <?php echo $net_eth['total']; ?>Mb
-                <br />connections: <?php echo $net_connections['connections']; ?>
+                <br />connections: <?php echo $net_connections['connections']; ?> (<?php echo $net_connections['established']; ?> established, <?php echo $net_connections['listening']; ?> listening, <?php echo $net_connections['opening']; ?> opening, <?php echo $net_connections['closing'] ?> closing)
             </td>
         </tr>
 

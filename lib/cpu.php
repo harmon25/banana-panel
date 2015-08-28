@@ -47,7 +47,7 @@ class CPU {
 
         $cpuDetails = $ssh->shell_exec_noauth('ps -e -o pcpu,user,args --sort=-pcpu | sed "/^ 0.0 /d" | head -' . self::$DETAIL_LINE_COUNT);
 
-        $result['degrees'] = round($currenttemp / 1000);
+        $result['degrees'] = round($currenttemp / 1000, 1);
         $result['percentage'] = round($result['degrees'] / self::$MaxTemp * 100);
 
         if ($result['percentage'] >= '80')

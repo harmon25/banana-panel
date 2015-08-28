@@ -3,6 +3,7 @@
 namespace lib;
 
 use lib\Uptime;
+use lib\Power;
 use lib\Memory;
 use lib\CPU;
 use lib\Storage;
@@ -12,6 +13,7 @@ use lib\Users;
 use lib\Temp;
 
 $uptime = Uptime::uptime();
+$power = Power::power();
 $ram = Memory::ram();
 $swap = Memory::swap();
 $cpu = CPU::cpu();
@@ -85,6 +87,12 @@ function shell_to_html_table_result($shellExecOutput) {
             <td class="check"><i class="icon-time"></i> Uptime</td>
             <td class="icon"></td>
             <td class="infos"><?php echo $uptime; ?></td>
+        </tr>
+
+        <tr id="check-power">
+            <td class="check"><i class="icon-road"></i> Power usage</td>
+            <td class="icon"><?php echo icon_alert($power['alert']); ?></td>
+            <td class="infos"><?php echo $power['voltage']; ?> V &middot; <?php echo $power['milliampere']; ?> mA &middot; <?php echo $power['watts']; ?> W</td>
         </tr>
 
         <tr id="check-ram">

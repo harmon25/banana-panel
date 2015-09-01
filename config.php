@@ -5,6 +5,9 @@
  *
  * Ensure you have done every other steps described on
  * https://github.com/Bioshox/Raspcontrol/wiki/Enable-URL-Rewriting#configure-your-web-server
+ * As that original URL is dead, here are some alternatives:
+ * https://github.com/moifort/Raspcontrol-ArchLinux/wiki/Enable-URL-Rewriting
+ * https://menzerath.eu/artikel/raspberry-pi-raspcontrol-installation-funktionen/
  */
 $rewriting = false;
 

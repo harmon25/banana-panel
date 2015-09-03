@@ -6,11 +6,18 @@ class Network {
 
     public static function connections() {
         global $ssh;
-        $connections = $ssh->shell_exec_noauth("netstat -nta --inet | wc -l");
-        $connections--;
+        $connections = $ssh->shell_exec_noauth("netstat -nta --inet | grep -e '\(tcp\|udp\)' | wc -l");
+        $established = $ssh->shell_exec_noauth("netstat -nta --inet | grep ESTABLISHED | wc -l");
+        $listening = $ssh->shell_exec_noauth("netstat -nta --inet | grep LISTEN | wc -l");
+        $opening = $ssh->shell_exec_noauth("netstat -nta --inet | grep SYN | wc -l");
+        $closing = $ssh->shell_exec_noauth("netstat -nta --inet | grep -e '\(CLOS\|WAIT\|LAST\)' | wc -l");
 
         return array(
             'connections' => substr($connections, 0, -1),
+            'established' => substr($established, 0, -1),
+            'listening' => substr($listening, 0, -1),
+            'opening' => substr($opening, 0, -1),
+            'closing' => substr($closing, 0, -1),
             'alert' => ($connections >= 50 ? 'warning' : 'success')
         );
     }

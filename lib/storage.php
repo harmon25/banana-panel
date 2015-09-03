@@ -17,9 +17,10 @@ class Storage {
             list($fs, $type, $size, $used, $available, $percentage, $mounted) = $drivedetails[0];
 
             $result[$i]['name'] = $mounted;
-            $result[$i]['total'] = self::kConv($size);
+            $result[$i]['total'] = self::kConv($available + $used);
             $result[$i]['free'] = self::kConv($available);
-            $result[$i]['used'] = self::kConv($size - $available);
+            $result[$i]['used'] = self::kConv($used);
+            $result[$i]['reserved'] = self::kConv($size - $available - $used); // system reserved space
             $result[$i]['format'] = $type;
 
             $result[$i]['percentage'] = rtrim($percentage, '%');

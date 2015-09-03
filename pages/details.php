@@ -152,7 +152,7 @@ function shell_to_html_table_result($shellExecOutput) {
               <div class="progress">
                 <div class="bar bar-', $hdd[$i]['alert'], '" style="width: ', $hdd[$i]['percentage'], '%;">', $hdd[$i]['percentage'], '%</div>
               </div>
-              free: <span class="text-success">', $hdd[$i]['free'], 'b</span> &middot; used: <span class="text-warning">', $hdd[$i]['used'], 'b</span> &middot; total: ', $hdd[$i]['total'], 'b &middot; format: ', $hdd[$i]['format'], '
+              <abbr title="free and usable space">free</abbr>: <span class="text-success">', $hdd[$i]['free'], 'b</span> &middot; <abbr title="occupied by data">used</abbr>: <span class="text-warning">', $hdd[$i]['used'], 'b</span> &middot; <abbr title="usable space, occupied or free">total</abbr>: ', $hdd[$i]['total'], 'b (+ ', $hdd[$i]['reserved'], 'b <abbr title="system reserved space (not available for data)">reserved</abbr>) &middot; format: ', $hdd[$i]['format'], '
             </td>
           </tr>
           ', ($i == sizeof($hdd) - 1) ? null : '<tr class="storage">';
@@ -166,7 +166,7 @@ function shell_to_html_table_result($shellExecOutput) {
                 IP: <span class="text-info"><?php echo Rbpi::internalIp(); ?></span> [internal] &middot;
                 <span class="text-info"><?php echo Rbpi::externalIp(); ?></span> [external]
                 <br />received: <strong><?php echo $net_eth['down']; ?>Mb</strong> &middot; sent: <strong><?php echo $net_eth['up']; ?>Mb</strong> &middot; total: <?php echo $net_eth['total']; ?>Mb
-                <br />connections: <?php echo $net_connections['connections']; ?> (<?php echo $net_connections['established']; ?> established, <?php echo $net_connections['listening']; ?> listening, <?php echo $net_connections['opening']; ?> opening, <?php echo $net_connections['closing'] ?> closing)
+                <br />connections: <?php echo $net_connections['connections']; ?> (<?php echo $net_connections['established']; ?> <abbr title="open and active connections">established</abbr>, <?php echo $net_connections['listening']; ?> <abbr title="waiting for incoming connections">listening</abbr>, <?php echo $net_connections['opening']; ?> <abbr title="connections about to be established">opening</abbr>, <?php echo $net_connections['closing'] ?> <abbr title="connections just closed or about to be closed">closing</abbr>)
             </td>
         </tr>
 

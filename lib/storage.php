@@ -20,6 +20,7 @@ class Storage {
             $result[$i]['total'] = self::kConv($available + $used);
             $result[$i]['free'] = self::kConv($available);
             $result[$i]['used'] = self::kConv($used);
+            $result[$i]['reserved'] = self::kConv($size - $available - $used); // system reserved space
             $result[$i]['format'] = $type;
 
             $result[$i]['percentage'] = rtrim($percentage, '%');
